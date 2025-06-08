@@ -1,0 +1,19 @@
+version: '3'
+services:
+  user-service:
+    build: ./user
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices-network
+
+  product-service:
+    build: ./product
+    ports:
+      - "8081:8081"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
